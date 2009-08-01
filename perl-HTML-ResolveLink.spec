@@ -1,21 +1,21 @@
-%define realname   HTML-ResolveLink
-%define version    0.05
-%define release    %mkrel 1
+%define upstream_name    HTML-ResolveLink
+%define upstream_version 0.05
 
-Name:       perl-%{realname}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:    Resolve relative links in (X)HTML into absolute URI
-Source:     http://www.cpan.org/modules/by-module/HTML/%{realname}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{realname}
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: perl-devel
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(HTML::Parser)
 BuildRequires: perl(Test::More)
 BuildRequires: perl(URI)
 BuildArch: noarch
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 HTML::ResolveLink is a module to rewrite relative links in XHTML or HTML
@@ -27,7 +27,7 @@ For example. when you have
   <img src="/bar.gif" />
 
 %prep
-%setup -q -n %{realname}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
