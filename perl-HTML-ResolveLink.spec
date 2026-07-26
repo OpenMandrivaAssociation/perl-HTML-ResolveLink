@@ -1,15 +1,13 @@
 %define upstream_name    HTML-ResolveLink
-%define upstream_version 0.05
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Version:	0.05
+Release:	6
 
 Summary:	Resolve relative links in (X)HTML into absolute URI
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -28,7 +26,7 @@ For example. when you have
   <img src="/bar.gif" />
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -53,9 +51,7 @@ make test
 
 * Sat Aug 01 2009 Jérôme Quelin <jquelin@mandriva.org> 0.50.0-1mdv2011.0
 + Revision: 406060
-- rebuild using %%perl_convert_version
-
-* Thu Mar 05 2009 Michael Scherer <misc@mandriva.org> 0.05-1mdv2009.1
+- rebuild using %0.05 Thu Mar 05 2009 Michael Scherer <misc@mandriva.org> 0.05-1mdv2009.1
 + Revision: 348888
 - import perl-HTML-ResolveLink
 
